@@ -1,0 +1,53 @@
+name: Yummo
+version: '${project.version}'
+main: me.lezchap.yummo.Yummo
+api-version: 1.17
+authors: [ LezChap ]
+description: Provides a savory helmet which will (when used) gather food items into it, and auto-feed them to the player as required.
+commands:
+  yummo:
+    description: Base Command to spawn helms.  Syntax- /yummo <name> <type> [r g b] or /yummo <name> <type> [color]
+  yummo help:
+    description: Command listing and help
+  yummo reload:
+    description: Reloads Yummo configs from file
+  yummo debug:
+    description: Debugging commands (shows stored food value, maybe more in the future)
+  yummo maxfood:
+    description: Shows or optionally (with number argument) sets the Max Food config for Helms.
+  yummo food list:
+    description: Lists all foods available for the helm to consume
+  yummo food get:
+    description: Gets the food value for a specific food
+  yummo food set:
+    description: Sets the food value for a specific food (adds new foods too)
+  yummo food remove:
+    description: removes the given food from the list of available foods
+permissions:
+  yummo.reload:
+    description: Reload Yummo Configs
+    default: op
+  yummo.help:
+    description: Yummo Command syntax/help
+    default: true
+  yummo.debug:
+    description: debugging commands
+    default: op
+  yummo.spawnhelm:
+    description: Allows spawning of Savory Helms
+    default: op
+  yummo.maxfood:
+    description: Shows or sets the max food capacity config.
+    default: op
+  yummo.food.list:
+    description: List all foods available for Savory Helms
+    default: true
+  yummo.food.get:
+    description: Get the food value for a specific food
+    default: op
+  yummo.food.set:
+    description: Set the food value for a specific food (or add new foods)
+    default: op
+  yummo.food.remove:
+    description: Remove a food from the available options
+    default: op
