@@ -1,0 +1,25 @@
+Changelog
+
+1.01
+ New/Changed Features:
+ - Added eating sound when Yummo Helm consumes food.
+ - Added eating sound when Yummo Helm feeds player.
+ - 'Helm Full' message moved from Chat Message to Action Bar Message.
+
+ Bugfixes:
+ - Now accepts all items on food list, regardless of Vanilla Edibility.
+ - Stops console stacktrace spam when player right-clicked empty slot.
+ - "food list" command now works if extra (ignored) arguments were put after "list".
+ - fixed "food set" command error if no number was given.
+ - Added message when changing MaxFood setting via command (so you see it actually processed).
+ - Fixed possible unexpected behavior in "food set" when comparing input and config values
+
+ Typos and Wording Changes:
+ - Colors on the Debug Command output weren't consistent, fixed.
+ - Minor rewording of "maxfood" command output when checking current setting.
+ - Some minor rewordings of the "help" command output.
+ - Clarified that item removed in "food remove" is from the Yummo Helm configs.
+ - Unified Helmet references in messages to "Yummo Helm" within the mod.
+
+
+1.0 -- Initial Release

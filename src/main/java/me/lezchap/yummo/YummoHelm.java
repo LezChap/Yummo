@@ -1,6 +1,9 @@
 package me.lezchap.yummo;
 
 import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
@@ -61,7 +64,7 @@ public class YummoHelm {
 
         for(int i = 0 ; i < inv.getSize() ; i++) {
             ItemStack slot = inv.getItem(i);
-            if (slot != null && slot.getType().isEdible()) {
+            if (slot != null) {
                 String foodName = slot.getType().name().toLowerCase();
                 if (valConfig.getString(foodName) != null) {
                     // Don't remove item if player is in creative or spectator
@@ -73,10 +76,12 @@ public class YummoHelm {
                     if (data.has(Config.FOOD_STORED_KEY, PersistentDataType.FLOAT)) {
                         double val = Math.min(data.get(Config.FOOD_STORED_KEY, PersistentDataType.FLOAT) + valConfig.getDouble(foodName +
                                 ".value"), Config.MAX_FOOD);
-                        data.set(Config.FOOD_STORED_KEY, PersistentDataType.FLOAT, (float)val);
+                        data.set(Config.FOOD_STORED_KEY, PersistentDataType.FLOAT, (float) val);
                     } else {
-                        data.set(Config.FOOD_STORED_KEY, PersistentDataType.FLOAT, (float)valConfig.getDouble(foodName + ".value"));
+                        data.set(Config.FOOD_STORED_KEY, PersistentDataType.FLOAT, (float) valConfig.getDouble(foodName + ".value"));
                     }
+                    Location loc = player.getLocation();
+                    loc.getWorld().playSound(loc, Sound.ENTITY_GENERIC_EAT, SoundCategory.PLAYERS, 1.0f, 1.0f);
                     //player.sendMessage("Added: "+ valConfig.getDouble(foodName + ".value") + " Food points to helm. Helm total: " + data.get(Config.FOOD_STORED_KEY, PersistentDataType.FLOAT));
                     updateLore(helm, meta);
                     e.setCancelled(true);
@@ -110,6 +115,8 @@ public class YummoHelm {
             }
             data.set(Config.FOOD_STORED_KEY, PersistentDataType.FLOAT, 0f);
         }
+        Location loc = player.getLocation();
+        loc.getWorld().playSound(loc, Sound.ENTITY_GENERIC_EAT, SoundCategory.PLAYERS, 1.0f, 1.0f);
         updateLore(helm, meta);
     }
 

@@ -45,27 +45,27 @@ public class SpawnHelmCommand {
                             meta.setColor(dye);
                             helm.setItemMeta(meta);
                         }
-                        sendMessage(sender, receiver, "Savory Leather Cap", Config.SAVORY_COLOR, giveHelm(receiver, helm));
+                        sendMessage(sender, receiver, "Yummo Leather Cap", Config.SAVORY_COLOR, giveHelm(receiver, helm));
                         return true;
                     case "netherite":
                         helm = Utils.createItemStack("netherite", Config.SAVORY_COLOR + "Savory I");
-                        sendMessage(sender, receiver, "Savory Netherite Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
+                        sendMessage(sender, receiver, "Yummo Netherite Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
                         return true;
                     case "diamond":
                         helm = Utils.createItemStack("diamond", Config.SAVORY_COLOR + "Savory I");
-                        sendMessage(sender, receiver, "Savory Diamond Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
+                        sendMessage(sender, receiver, "Yummo Diamond Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
                         return true;
                     case "gold":
                         helm = Utils.createItemStack("gold", Config.SAVORY_COLOR + "Savory I");
-                        sendMessage(sender, receiver, "Savory Gold Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
+                        sendMessage(sender, receiver, "Yummo Gold Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
                         return true;
                     case "iron":
                         helm = Utils.createItemStack("iron", Config.SAVORY_COLOR + "Savory I");
-                        sendMessage(sender, receiver, "Savory Iron Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
+                        sendMessage(sender, receiver, "Yummo Iron Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
                         return true;
                     case "chain":
                         helm = Utils.createItemStack("chain", Config.SAVORY_COLOR + "Savory I");
-                        sendMessage(sender, receiver, "Savory Chainmail Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
+                        sendMessage(sender, receiver, "Yummo Chainmail Helmet", Config.SAVORY_COLOR, giveHelm(receiver, helm));
                         return true;
                     default:
                         sender.sendMessage(Config.CHAT_FAIL_COLOR+ "Invalid helm type!" + Color.ORANGE + " Available options: netherite, " +
@@ -86,7 +86,7 @@ public class SpawnHelmCommand {
         if (success)
         {
             receiver.sendMessage(Config.CHAT_SUCCESS_COLOR + "[Added a " + helmColor + helmType + Config.CHAT_SUCCESS_COLOR + " to your Inventory]");
-            sender.sendMessage(Config.CHAT_SUCCESS_COLOR + "[" + helmColor + helmType + Config.CHAT_SUCCESS_COLOR + " Helm sent to " +
+            sender.sendMessage(Config.CHAT_SUCCESS_COLOR + "[" + helmColor + helmType + Config.CHAT_SUCCESS_COLOR + " Yummo Helm sent to " +
                     receiver.getName() + "]");
         } else
         {

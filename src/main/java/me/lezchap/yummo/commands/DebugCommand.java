@@ -14,6 +14,8 @@ public class DebugCommand {
             Player p = (((Player) sender).getPlayer());
             ItemStack helm =  p.getInventory().getHelmet();
             String helmSlot = "Worn";
+            boolean found = false;
+
             if (helm == null || !YummoHelm.isHelm(helm)) {
                 helm = p.getInventory().getItemInMainHand();
                 helmSlot = "in Main Hand";
@@ -24,14 +26,14 @@ public class DebugCommand {
                 helmSlot = "in Off Hand";
             }
             if (helm == null || !YummoHelm.isHelm(helm)) {
-                sender.sendMessage(Config.CHAT_FAIL_COLOR + "No valid helm found worn or in hand.");
+                sender.sendMessage(Config.CHAT_FAIL_COLOR + "No Yummo Helm found worn or in hand.");
                 return true;
             }
             float storedFood = YummoHelm.getFood(helm);
-            sender.sendMessage(ChatColor.YELLOW + "Helmet found " + ChatColor.WHITE + helmSlot + ChatColor.YELLOW +
+            sender.sendMessage(ChatColor.YELLOW + "Yummo Helm found " + ChatColor.WHITE + helmSlot + ChatColor.YELLOW +
                     " contains " + ChatColor.WHITE + storedFood + ChatColor.YELLOW + " of " +
-                    ChatColor.WHITE + Config.MAX_FOOD + " stored food value. " + Math.round((storedFood/Config.MAX_FOOD)*100) +
-                    "% full.");
+                    ChatColor.WHITE + Config.MAX_FOOD + ChatColor.YELLOW + " stored food value. " + ChatColor.WHITE +
+                    Math.round((storedFood/Config.MAX_FOOD)*100) + "%" + ChatColor.YELLOW + " full.");
             return true;
         } else {
             if (sender instanceof Player) {

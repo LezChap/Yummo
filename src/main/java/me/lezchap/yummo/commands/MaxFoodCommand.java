@@ -14,11 +14,13 @@ public class MaxFoodCommand {
                     parse = Float.parseFloat(args[1]);
                     Config.MAX_FOOD = parse;
                     Config.save();
+                    sender.sendMessage(ChatColor.YELLOW + "Max Food value for Yummo Helms set to: " +
+                            ChatColor.WHITE + Config.MAX_FOOD);
                 } catch (Exception e) {
                     sender.sendMessage(Config.CHAT_FAIL_COLOR + "Invalid Number");
                 }
             } else {
-                sender.sendMessage(ChatColor.YELLOW + "Current Max Food value for helms: " +
+                sender.sendMessage(ChatColor.YELLOW + "Current Max Food value for Yummo Helms: " +
                         ChatColor.WHITE + Config.MAX_FOOD);
             }
             return true;

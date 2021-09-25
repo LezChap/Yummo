@@ -82,4 +82,12 @@ public class Utils {
         }
         return false;
     }
+
+    public static boolean areEqual(double a, double b) {
+        double threshhold = .001;
+        if (Math.abs(a - b) < threshhold)
+            return true;
+        else
+            return false;
+    }
 }

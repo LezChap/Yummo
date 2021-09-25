@@ -4,7 +4,11 @@ import me.lezchap.yummo.commands.TabCompleter;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.logging.Logger;
+
 public final class Yummo extends JavaPlugin {
+
+    private static Logger logger;
 
     @Override
     public void onEnable() {
@@ -21,6 +25,12 @@ public final class Yummo extends JavaPlugin {
         this.getCommand("yummo").setTabCompleter(new TabCompleter());
 
         this.getServer().getPluginManager().registerEvents(new Events(), this);
+
+        this.logger = this.getLogger();
+    }
+
+    public static Logger Logger() {
+        return logger;
     }
 
 }
