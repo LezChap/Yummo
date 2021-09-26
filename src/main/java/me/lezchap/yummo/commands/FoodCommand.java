@@ -13,20 +13,25 @@ import java.util.Set;
 public class FoodCommand {
 
     public static boolean showFoodCommand(CommandSender sender, String[] args) {
+        FileConfiguration valConfig = ValuesConfig.getConfigFile();
+
+        if (args.length >= 2 ) {
+            if (args[1].equalsIgnoreCase("list")) {
+                if (sender.hasPermission("yummo.food.list")) {
+                    Set<String> list = valConfig.getKeys(false);
+                    String listJoined = String.join(", ", list);
+                    sender.sendMessage(ChatColor.YELLOW + "Found the following foods: " + ChatColor.WHITE + listJoined);
+                    return true;
+                } else {
+                    sender.sendMessage(Config.CHAT_FAIL_COLOR + "Missing command permission: " +
+                            ChatColor.YELLOW + "yummo.food.list");
+                }
+            }
+        }
+
         if (args.length >= 3 ) {
-            FileConfiguration valConfig = ValuesConfig.getConfigFile();
             String foodName = args[2].toLowerCase();
             switch (args[1].toLowerCase()) {
-                case "list":
-                    if (sender.hasPermission("yummo.food.list")) {
-                        Set<String> list = valConfig.getKeys(false);
-                        String listJoined = String.join(", ", list);
-                        sender.sendMessage(ChatColor.YELLOW + "Found the following foods: " + ChatColor.WHITE + listJoined);
-                        return true;
-                    } else {
-                        sender.sendMessage(Config.CHAT_FAIL_COLOR + "Missing command permission: " +
-                                ChatColor.YELLOW + "yummo.food.list");
-                    }
                 case "set":
                     if (sender.hasPermission("yummo.food.set")) {
                         if (args.length == 4) {
@@ -66,8 +71,6 @@ public class FoodCommand {
                                 ChatColor.YELLOW + "yummo.food.set");
                     }
                     return true;
-
-
                 case "get":
                     if (sender.hasPermission("yummo.food.get")) {
                         if (valConfig.getString(foodName) != null) {
@@ -81,7 +84,6 @@ public class FoodCommand {
                                 ChatColor.YELLOW + "yummo.food.get");
                     }
                     return true;
-
                 case "remove":
                     if (sender.hasPermission("yummo.food.remove")) {
                         if (valConfig.getString(foodName) != null) {
